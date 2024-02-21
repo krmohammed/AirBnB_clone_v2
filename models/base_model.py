@@ -25,7 +25,11 @@ class BaseModel:
         self.updated_at = datetime.now()
 
         if kwargs:
-            self.__dict__.update(kwargs)
+            for key, val in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    val = datetime.strptime(val, "%Y-%m-%dT-%H:%M:%S.%f")
+                if k != "__class__":
+                    setattr(self, key, val)
 
     def __str__(self):
         """Returns a string representation of the instance"""
