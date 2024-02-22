@@ -34,8 +34,7 @@ class DBStorage:
     def all(self, cls=None):
         """queries to return objects based on `cls"""
         objects = {}
-        #classes = [State, City, Place, Amenity, Review, User]
-        classes = [State, City, User, Place, Review]
+        classes = [State, City, Place, Amenity, Review, User]
         if cls is not None:
             if isinstance(cls, str):
                 try:
