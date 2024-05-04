@@ -6,7 +6,7 @@ if ! dpkg -l | grep nginx > /dev/null; then
 	apt-get install -y nginx
 fi
 
-mkdir -p /data/web_static/{releases/test, shared}
+mkdir -p /data/web_static/{releases/test,shared}
 
 echo "<!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@ echo "<!DOCTYPE html>
 </html>" | tee /data/web_static/releases/test/index.html > /dev/null
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
-chmod -R ubuntu:ubuntu /data
+chown -R ubuntu:ubuntu /data
 
 sed -i '/^server {/a \\n\tlocation hbnb_static {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 
