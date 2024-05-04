@@ -23,7 +23,7 @@ def do_deploy(archive_path):
     # extraction of archive file
     filename = os.path.basename(archive_path)
     to_release = "/data/web_static/releases/" + \
-            filename.split(".")[0] + "/"
+        filename.split(".")[0] + "/"
     run("mkdir -p {}".format(to_release))
     run("tar -xzf /tmp/{} -C {}".format(filename, to_release))
 
