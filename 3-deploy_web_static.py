@@ -69,6 +69,6 @@ def deploy():
     """
     tzg_file = do_pack()
 
-    if not tzg_file:
+    if tzg_file is None:
         return False
     return do_deploy(tzg_file)
