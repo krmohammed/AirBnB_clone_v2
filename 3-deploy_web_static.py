@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" a fabric script that creates and distributes an archive to your web servers """
+""" a fabric script that creates and distributes an archive to web servers """
 import os
 from fabric.operations import local
 from fabric.api import env, put, run
