@@ -23,7 +23,7 @@ def do_pack():
     tgz_file = local("tar -cvzf {} web_static".format(filename))
 
     if tgz_file.succeeded:
-        return tgz_file
+        return filename
     else:
         return None
 
