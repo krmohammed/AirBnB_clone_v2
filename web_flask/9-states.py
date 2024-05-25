@@ -18,7 +18,8 @@ def teardown_database(exception):
 def states():
     """ list of states """
     all_states = storage.all(State).values()
-    return render_template("7-states_list.html", states=all_states)
+    return render_template("9-states.html", states=all_states)
+
 
 @app.route("/states/<id>", strict_slashes=False)
 def states_id(id):
@@ -27,7 +28,7 @@ def states_id(id):
     for state in states:
         if id == state.id:
             return render_template("9-states.html", state=state)
-    return render_template("9-not_found.html")
+    return render_template("9-states.html")
 
 
 if __name__ == "__main__":
